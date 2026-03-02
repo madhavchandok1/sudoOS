@@ -1,3 +1,5 @@
+import { playOSSound } from '../utils/sound';
+
 export default function StartMenu({ visible, openWindow, onShutdown }) {
   const apps = [
     { id: 'about', icon: 'fa-solid fa-user-astronaut', color: '#e94560', name: 'About Me' },
@@ -23,7 +25,14 @@ export default function StartMenu({ visible, openWindow, onShutdown }) {
       <div className="start-menu-label">Applications</div>
       <div className="start-menu-grid">
         {apps.map(app => (
-          <div key={app.id} className="start-app-item" onClick={() => openWindow(app.id)}>
+          <div
+            key={app.id}
+            className="start-app-item"
+            onClick={() => {
+              playOSSound('click');
+              openWindow(app.id);
+            }}
+          >
             <div className="start-app-icon" style={{ color: app.color }}>
               <i className={app.icon}></i>
             </div>
@@ -32,7 +41,13 @@ export default function StartMenu({ visible, openWindow, onShutdown }) {
         ))}
       </div>
       <div className="start-menu-footer">
-        <div className="start-footer-btn" onClick={onShutdown}>
+        <div
+          className="start-footer-btn"
+          onClick={() => {
+            playOSSound('click');
+            onShutdown();
+          }}
+        >
           <i className="fa-solid fa-power-off"></i> Shut Down
         </div>
       </div>

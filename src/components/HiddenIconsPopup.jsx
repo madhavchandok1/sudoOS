@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { playOSSound } from '../utils/sound';
 
 export default function HiddenIconsPopup({ visible, triggerNotif, nightLight, setNightLight }) {
   const [bluetooth, setBluetooth] = useState(true);
@@ -22,22 +23,64 @@ export default function HiddenIconsPopup({ visible, triggerNotif, nightLight, se
   return (
     <div id="hidden-icons-popup" className={visible ? 'visible' : ''}>
       <div className="hidden-icons-grid">
-        <div className={`hidden-icon-btn${bluetooth ? ' active' : ''}`} onClick={() => toggleFeature('Bluetooth', bluetooth, setBluetooth)} title="Bluetooth">
+        <div
+          className={`hidden-icon-btn${bluetooth ? ' active' : ''}`}
+          onClick={() => {
+            playOSSound('click');
+            toggleFeature('Bluetooth', bluetooth, setBluetooth);
+          }}
+          title="Bluetooth"
+        >
           <i className="fa-brands fa-bluetooth-b"></i>
         </div>
-        <div className={`hidden-icon-btn${nightLight ? ' active' : ''}`} onClick={toggleNightLight} title="Night Light">
+        <div
+          className={`hidden-icon-btn${nightLight ? ' active' : ''}`}
+          onClick={() => {
+            playOSSound('click');
+            toggleNightLight();
+          }}
+          title="Night Light"
+        >
           <i className="fa-solid fa-moon"></i>
         </div>
-        <div className={`hidden-icon-btn${location ? ' active' : ''}`} onClick={() => toggleFeature('Location', location, setLocation)} title="Location">
+        <div
+          className={`hidden-icon-btn${location ? ' active' : ''}`}
+          onClick={() => {
+            playOSSound('click');
+            toggleFeature('Location', location, setLocation);
+          }}
+          title="Location"
+        >
           <i className="fa-solid fa-location-dot"></i>
         </div>
-        <div className={`hidden-icon-btn${focusAssist ? ' active' : ''}`} onClick={() => toggleFeature('Focus Assist', focusAssist, setFocusAssist)} title="Focus Assist">
+        <div
+          className={`hidden-icon-btn${focusAssist ? ' active' : ''}`}
+          onClick={() => {
+            playOSSound('click');
+            toggleFeature('Focus Assist', focusAssist, setFocusAssist);
+          }}
+          title="Focus Assist"
+        >
           <i className="fa-solid fa-bell-slash"></i>
         </div>
-        <div className={`hidden-icon-btn${hotspot ? ' active' : ''}`} onClick={() => toggleFeature('Mobile Hotspot', hotspot, setHotspot)} title="Mobile Hotspot">
+        <div
+          className={`hidden-icon-btn${hotspot ? ' active' : ''}`}
+          onClick={() => {
+            playOSSound('click');
+            toggleFeature('Mobile Hotspot', hotspot, setHotspot);
+          }}
+          title="Mobile Hotspot"
+        >
           <i className="fa-solid fa-satellite-dish"></i>
         </div>
-        <div className={`hidden-icon-btn${batterySaver ? ' active' : ''}`} onClick={() => toggleFeature('Battery Saver', batterySaver, setBatterySaver)} title="Battery Saver">
+        <div
+          className={`hidden-icon-btn${batterySaver ? ' active' : ''}`}
+          onClick={() => {
+            playOSSound('click');
+            toggleFeature('Battery Saver', batterySaver, setBatterySaver);
+          }}
+          title="Battery Saver"
+        >
           <i className="fa-solid fa-leaf"></i>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { playOSSound } from '../utils/sound';
 
 function formatTime(now) {
   return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -39,7 +40,10 @@ export default function Taskbar({
           <span
             className={`start-btn${startMenuOpen ? ' active' : ''}`}
             id="start-btn"
-            onClick={onToggleStartMenu}
+            onClick={() => {
+              playOSSound('click');
+              onToggleStartMenu();
+            }}
             title="Start Menu"
           >
             <i className="fa-solid fa-fingerprint"></i>
@@ -51,7 +55,10 @@ export default function Taskbar({
               key={id}
               className={`taskbar-app${focusedWindow === id ? ' active' : ''}${windows?.[id]?.closing ? ' closing' : ''}`}
               data-id={id}
-              onClick={() => onTaskbarClick(id)}
+              onClick={() => {
+                playOSSound('click');
+                onTaskbarClick(id);
+              }}
             >
               <div className="taskbar-app-icon">
                 <i className={getAppIcon(id)}></i>
@@ -61,21 +68,53 @@ export default function Taskbar({
         </div>
       </div>
       <div className="taskbar-right">
-        <span className="taskbar-icon" id="hidden-icons-btn" onClick={onToggleHiddenIcons} title="Show hidden icons">
+        <span
+          className="taskbar-icon"
+          id="hidden-icons-btn"
+          onClick={() => {
+            playOSSound('click');
+            onToggleHiddenIcons();
+          }}
+          title="Show hidden icons"
+        >
           <i className="fa-solid fa-chevron-up" style={{ fontSize: '11px' }}></i>
         </span>
         <div className="taskbar-sys">
-          <span className="taskbar-icon" id="network-icon" onClick={onToggleNetwork} title={isOnline ? 'WiFi Connected' : 'Airplane Mode'}>
+          <span
+            className="taskbar-icon"
+            id="network-icon"
+            onClick={() => {
+              playOSSound('click');
+              onToggleNetwork();
+            }}
+            title={isOnline ? 'WiFi Connected' : 'Airplane Mode'}
+          >
             <i className={`fa-solid ${isOnline ? 'fa-wifi' : 'fa-plane'}`}></i>
           </span>
-          <span className="taskbar-icon" id="vol-icon" onClick={onToggleMute} title="Volume">
+          <span
+            className="taskbar-icon"
+            id="vol-icon"
+            onClick={() => {
+              playOSSound('click');
+              onToggleMute();
+            }}
+            title="Volume"
+          >
             <i className={`fa-solid ${isMuted ? 'fa-volume-xmark' : 'fa-volume-high'}`}></i>
           </span>
           <span className="taskbar-icon" id="battery-icon" title="Battery: 78% remaining">
             <i className="fa-solid fa-battery-half"></i>
           </span>
         </div>
-        <div className="taskbar-clock-wrap" id="clock-wrap" title="Calendar" onClick={onToggleCalendar}>
+        <div
+          className="taskbar-clock-wrap"
+          id="clock-wrap"
+          title="Calendar"
+          onClick={() => {
+            playOSSound('click');
+            onToggleCalendar();
+          }}
+        >
           <span className="taskbar-time" id="clock-time">{time.time}</span>
           <span className="taskbar-date" id="clock-date">{time.date}</span>
         </div>
