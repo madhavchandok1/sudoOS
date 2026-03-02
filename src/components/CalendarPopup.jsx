@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { playOSSound } from '../utils/sound';
 
 function buildCalendar(year, month) {
   const firstDay = new Date(year, month, 1).getDay();
@@ -26,6 +27,7 @@ export default function CalendarPopup({ visible }) {
   const days = buildCalendar(year, month);
 
   const calNav = (dir) => {
+    playOSSound('click');
     setCalDate(prev => {
       const d = new Date(prev);
       d.setMonth(d.getMonth() + dir);

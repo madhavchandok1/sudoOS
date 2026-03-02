@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+import { playOSSound } from '../utils/sound';
 
 export default function BootScreen({ onComplete }) {
   const barRef = useRef(null);
   const [status, setStatus] = useState('Initializing…');
 
   useEffect(() => {
+    playOSSound('boot');
     const bar = barRef.current;
     if (bar) requestAnimationFrame(() => bar.classList.add('run'));
 
