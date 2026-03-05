@@ -11,6 +11,7 @@ function playOSSound(name) {
     context: '/assets/sounds/mouseclick.mp3',
     click: '/assets/sounds/mouseclick.mp3',
     boot: '/assets/sounds/osboot.mp3',
+    type: '/assets/sounds/keyboardtype.mp3',
   };
   const src = sources[name];
   if (!src) return;

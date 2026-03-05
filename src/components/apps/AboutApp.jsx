@@ -5,17 +5,27 @@ export default function AboutApp() {
         <div className="avatar"><i className="fa-solid fa-user-astronaut"></i></div>
         <div className="about-meta">
           <h1>Madhav Chandok</h1>
-          <div className="role">Full-Stack Developer &amp; Designer</div>
+          <div className="role">Cloud &amp; Backend Engineer</div>
           <div className="status-badge">
             <div className="status-dot"></div>Available for work
           </div>
         </div>
       </div>
       <div className="about-body">
-        <p>Hey! I'm a <strong>full-stack developer</strong> with 5+ years of experience crafting digital experiences at the intersection of code and design.</p>
-        <p>I specialize in building <strong>scalable web applications</strong>, designing intuitive interfaces, and turning complex problems into elegant solutions.</p>
-        <p>When I'm not shipping features, I'm tinkering with creative coding, playing guitar, or deep in a sci-fi novel. I believe <strong>great software tells a story</strong> — every project is a new chapter.</p>
-        <p>Based in <strong>San Francisco, CA</strong> · Open to remote worldwide 🌍</p>
+        <p>I build <strong>scalable backend systems</strong> and <strong>cloud-native integrations</strong> that turn complex
+          business workflows into reliable, high-performance services.</p>
+        <p>My primary focus lies in <strong>API-first architecture</strong> and <strong>distributed systems on Microsoft Azure</strong>.
+          I work across both the <strong>.NET and Python ecosystems</strong>, choosing technologies based on
+          performance, maintainability, and long-term scalability.
+        </p>
+        <p>With hands-on experience in production deployments, CI/CD automation, secure
+          authentication, and asynchronous processing, I approach engineering as a
+          discipline of <strong>designing systems — not just writing code</strong>.</p>
+        <p>I am driven by the challenge of solving real-world problems through clean
+          architecture, observable infrastructure, and efficient data flow.</p>
+        <p></p>
+
+        <p>Based in <strong>New Delhi, India</strong> · Open to remote worldwide 🌍</p>
       </div>
     </div>
   );
