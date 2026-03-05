@@ -29,7 +29,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-os:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/portfolio-os:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/sudo-os-portfolio:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/sudo-os-portfolio:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
