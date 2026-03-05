@@ -167,6 +167,15 @@ export default function SnakeApp({ triggerNotif, pauseRef }) {
   // Keyboard controls
   useEffect(() => {
     const handler = (e) => {
+      const target = e.target;
+      if (
+        target &&
+        (target.tagName === 'INPUT' ||
+         target.tagName === 'TEXTAREA' ||
+         target.isContentEditable)
+      ) {
+        return;
+      }
       const keyMap = {
         'ArrowUp': [0, -1], 'ArrowDown': [0, 1], 'ArrowLeft': [-1, 0], 'ArrowRight': [1, 0],
         'w': [0, -1], 's': [0, 1], 'a': [-1, 0], 'd': [1, 0],

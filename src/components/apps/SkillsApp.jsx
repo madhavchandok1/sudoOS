@@ -1,49 +1,67 @@
 export default function SkillsApp() {
   const categories = [
     {
-      title: 'Frontend',
+      title: 'Programming',
       skills: [
-        { name: 'React / Next.js', pct: 95 },
-        { name: 'TypeScript', pct: 90 },
-        { name: 'CSS / Animation', pct: 92 },
-        { name: 'Vue.js', pct: 75 },
+        { name: 'Python', pct: 90, level: 'Advanced' },
+        { name: 'C#', pct: 75, level: 'Intermediate' },
+        { name: 'C/C++', pct: 72, level: 'Intermediate' },
+        { name: 'Java', pct: 68, level: 'Intermediate' },
       ],
     },
     {
-      title: 'Backend',
+      title: 'Cloud & DevOps',
       skills: [
-        { name: 'Node.js', pct: 88 },
-        { name: 'Python / Django', pct: 82 },
-        { name: 'PostgreSQL', pct: 85 },
-        { name: 'Docker / DevOps', pct: 70 },
+        { name: 'Azure', pct: 78, level: 'Intermediate' },
+        { name: 'Google Cloud', pct: 45, level: 'Beginner' },
+        { name: 'Docker', pct: 72, level: 'Intermediate' },
+        { name: 'CI/CD', pct: 45, level: 'Beginner' },
       ],
     },
     {
-      title: 'Design',
+      title: 'Web & API Development',
       skills: [
-        { name: 'Figma', pct: 88 },
-        { name: 'UI/UX Design', pct: 80 },
+        { name: 'ASP.NET Web API', pct: 72, level: 'Intermediate' },
+        { name: 'ASP.NET MVC', pct: 72, level: 'Intermediate' },
+        { name: 'FastAPI', pct: 88, level: 'Advanced' },
+        { name: 'Flask', pct: 72, level: 'Intermediate' },
       ],
     },
-    {
-      title: 'Tools',
-      skills: [
-        { name: 'Git / GitHub', pct: 95 },
-        { name: 'AWS / Vercel', pct: 78 },
-      ],
-    },
+  ];
+
+  const miscSkills = [
+    'SQLite',
+    'MongoDB',
+    'Microsoft SQL Server',
+    'MySQL',
+    'ElasticSearch',
+    'Visual Studio Code',
+    'Cursor',
+    'Visual Studio 2022',
+    'Postman',
+    'Git',
+    'GitHub',
+    'Swagger',
+    'Google Colab',
+    'Azure DevOps',
+    'PySpark',
+    'GraphQL',
+    'Graphene',
   ];
 
   return (
     <div className="window-body">
       <div className="skills-grid">
         {categories.map((cat, ci) => (
-          <div className="skill-category" key={ci}>
+          <div
+            className={`skill-category${cat.title === 'Web & API Development' ? ' skill-category-wide' : ''}`}
+            key={ci}
+          >
             <h3>{cat.title}</h3>
             {cat.skills.map((skill, si) => (
               <div className="skill-item" key={si}>
                 <div className="skill-name">
-                  {skill.name} <span className="skill-pct">{skill.pct}%</span>
+                  {skill.name} <span className="skill-pct">{skill.level}</span>
                 </div>
                 <div className="skill-bar">
                   <div
@@ -55,6 +73,14 @@ export default function SkillsApp() {
             ))}
           </div>
         ))}
+      </div>
+      <div style={{ marginTop: '24px' }}>
+        <h3>Miscellaneous · Tools &amp; Frameworks</h3>
+        <div className="project-tags">
+          {miscSkills.map((name) => (
+            <span key={name} className="tag">{name}</span>
+          ))}
+        </div>
       </div>
     </div>
   );

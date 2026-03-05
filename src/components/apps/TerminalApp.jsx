@@ -1,5 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { APP_NAMES } from '../../utils/constants';
+import { playOSSound } from '../../utils/sound';
 
 const COMMANDS = (openWindow, triggerNotif) => ({
   help: () => [
@@ -131,6 +132,7 @@ export default function TerminalApp({ openWindow, triggerNotif }) {
             autoComplete="off"
             spellCheck="false"
             placeholder="type a command…"
+            onInput={() => playOSSound('type')}
             onKeyDown={handleKeyDown}
           />
         </div>
