@@ -9,8 +9,8 @@ const BOOKMARKS = [
 
 // Free CORS proxy services — if one fails, we try the next
 const PROXY_SERVICES = [
-  (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
   (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+  (url) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 
 function toProxyUrl(targetUrl) {
