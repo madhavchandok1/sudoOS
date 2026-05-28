@@ -8,6 +8,7 @@ export const APP_NAMES = {
   notepad: 'Notepad',
   files: 'Files',
   settings: 'Settings',
+  browser: 'Browser',
 };
 
 export const ICON_MARGIN = 36;

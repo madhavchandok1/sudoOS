@@ -222,7 +222,7 @@ export default function App() {
   useEffect(() => {
     const handler = (e) => {
       if (!e.altKey) return;
-      const map = { '1': 'about', '2': 'skills', '3': 'projects', '4': 'contact', '5': 'terminal', '6': 'snake', '7': 'notepad', '8': 'files', '9': 'settings' };
+      const map = { '1': 'about', '2': 'skills', '3': 'projects', '4': 'contact', '5': 'terminal', '6': 'snake', '7': 'notepad', '8': 'files', '9': 'settings', '0': 'browser' };
       if (map[e.key]) { e.preventDefault(); openWindow(map[e.key]); }
     };
     document.addEventListener('keydown', handler);

@@ -6,7 +6,7 @@ const COMMANDS = (openWindow, triggerNotif) => ({
   help: () => [
     '<span class="t-hi">╔══════════ sudoOS Terminal ══════════╗</span>',
     '<span class="t-out">  Apps:  about · skills · projects · contact</span>',
-    '<span class="t-out">         snake · notepad · files · settings</span>',
+    '<span class="t-out">         snake · notepad · files · settings · browser</span>',
     '<span class="t-out">  Utils: whoami · ls · pwd · date · clear</span>',
     '<span class="t-out">         uname · neofetch · echo · man · open</span>',
     '<span class="t-out">  Tip:   ↑ / ↓ for command history</span>',
@@ -15,7 +15,7 @@ const COMMANDS = (openWindow, triggerNotif) => ({
   pwd: () => ['<span class="t-out">/home/madhav/portfolio</span>'],
   date: () => [`<span class="t-out">${new Date().toString()}</span>`],
   uname: () => ['<span class="t-out">sudoOS 1.0.0 Browser-Native x64 Portfolio-LTS</span>'],
-  ls: () => ['<span class="t-out">about_me.txt  skills.json  projects/  contact.sh  snake.exe  notepad.txt  files/  settings.cfg</span>'],
+  ls: () => ['<span class="t-out">about_me.txt  skills.json  projects/  contact.sh  snake.exe  notepad.txt  files/  settings.cfg  browser</span>'],
   clear: (_, outputRef) => {
     if (outputRef && outputRef.current) outputRef.current.innerHTML = '';
     return [];
@@ -28,6 +28,7 @@ const COMMANDS = (openWindow, triggerNotif) => ({
   notepad:  () => { openWindow('notepad');  return ['<span class="t-out">→ Opening Notepad…</span>']; },
   files:    () => { openWindow('files');    return ['<span class="t-out">→ Opening File Manager…</span>']; },
   settings: () => { openWindow('settings'); return ['<span class="t-out">→ Opening Settings…</span>']; },
+  browser:  () => { openWindow('browser');  return ['<span class="t-out">→ Opening Browser…</span>']; },
   open: (args) => {
     const app = args[0];
     if (APP_NAMES[app]) {

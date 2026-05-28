@@ -9,6 +9,7 @@ import SnakeApp from './apps/SnakeApp';
 import NotepadApp from './apps/NotepadApp';
 import FilesApp from './apps/FilesApp';
 import SettingsApp from './apps/SettingsApp';
+import BrowserApp from './apps/BrowserApp';
 
 const WINDOWS_CONFIG = {
   about: { title: '<i class="fa-solid fa-user-astronaut"></i> about_me.txt', defaultWidth: 510, defaultTop: 80, defaultLeft: 160 },
@@ -20,6 +21,7 @@ const WINDOWS_CONFIG = {
   notepad: { title: '<i class="fa-solid fa-pen-to-square"></i> Untitled — Notepad', defaultWidth: 500, defaultTop: 120, defaultLeft: 190 },
   files: { title: '<i class="fa-regular fa-folder-open"></i> File Manager', defaultWidth: 560, defaultTop: 100, defaultLeft: 180 },
   settings: { title: '<i class="fa-solid fa-sliders"></i> System Settings', defaultWidth: 580, defaultTop: 80, defaultLeft: 200 },
+  browser: { title: '<i class="fa-solid fa-globe"></i> sudoOS Browser', defaultWidth: 720, defaultTop: 60, defaultLeft: 140 },
 };
 
 export default function WindowManager({
@@ -52,6 +54,7 @@ export default function WindowManager({
           setFpsVisible={setFpsVisible}
         />
       );
+      case 'browser': return <BrowserApp />;
       default: return null;
     }
   };
