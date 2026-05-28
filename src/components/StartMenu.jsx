@@ -11,6 +11,7 @@ export default function StartMenu({ visible, openWindow, onShutdown }) {
     { id: 'notepad', icon: 'fa-solid fa-pen-to-square', color: '#d4810a', name: 'Notepad' },
     { id: 'files', icon: 'fa-solid fa-folder-open', color: '#1e90ff', name: 'Files' },
     { id: 'settings', icon: 'fa-solid fa-sliders', color: '#ffffff', name: 'Settings' },
+    { id: 'browser', icon: 'fa-solid fa-globe', color: '#00e5ff', name: 'Browser' },
   ];
 
   return (

@@ -631,7 +631,396 @@
   flex-shrink: 0;
 }
 
-/* ── SETTINGS APP ── */
+/* ── BROWSER APP ── */
+.browser-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, .3);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.browser-nav-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.browser-nav-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.browser-nav-btn:hover:not(:disabled) {
+  background: rgba(233, 69, 96, .15);
+  color: var(--text);
+  border-color: rgba(233, 69, 96, .3);
+}
+
+.browser-nav-btn:disabled {
+  opacity: .3;
+  cursor: default;
+}
+
+.browser-address-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 12px;
+  transition: border-color .2s;
+}
+
+.browser-address-bar:focus-within {
+  border-color: rgba(233, 69, 96, .5);
+}
+
+.browser-lock {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.browser-url-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+}
+
+.browser-url-input::placeholder {
+  color: var(--text-muted);
+}
+
+.browser-bookmarks {
+  display: flex;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, .15);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.browser-bookmark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.browser-bookmark:hover {
+  background: rgba(233, 69, 96, .1);
+  border-color: rgba(233, 69, 96, .3);
+  color: var(--text);
+}
+
+.browser-bookmark i {
+  font-size: 12px;
+}
+
+.browser-viewport {
+  flex: 1;
+  position: relative;
+  background: #0a0a14;
+  overflow: hidden;
+}
+
+.browser-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.browser-loading-bar {
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  animation: browserLoad 1.5s ease-in-out infinite;
+}
+
+@keyframes browserLoad {
+  0% { width: 0; margin-left: 0; }
+  50% { width: 60%; margin-left: 20%; }
+  100% { width: 0; margin-left: 100%; }
+}
+
+.browser-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.browser-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.browser-start-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(233, 69, 96, .35);
+  margin-bottom: 4px;
+}
+
+.browser-home h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  color: var(--text);
+  margin: 0;
+}
+
+.browser-home p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 300px;
+}
+
+.browser-hint {
+  font-size: 10.5px !important;
+  opacity: .5;
+  margin-top: -4px !important;
+}
+
+.browser-start-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.browser-start-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.browser-start-link:hover {
+  background: rgba(233, 69, 96, .1);
+  border-color: rgba(233, 69, 96, .4);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.browser-blocked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.browser-blocked i {
+  font-size: 36px;
+  color: var(--accent);
+  opacity: .6;
+}
+
+.browser-blocked h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin: 0;
+}
+
+.browser-blocked p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.browser-open-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 8px 16px;
+  background: rgba(233, 69, 96, .15);
+  border: 1px solid rgba(233, 69, 96, .4);
+  border-radius: 8px;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.browser-open-external:hover {
+  background: rgba(233, 69, 96, .25);
+  border-color: rgba(233, 69, 96, .6);
+}
+
+.browser-blocked-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.browser-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.browser-retry-btn:hover {
+  background: rgba(255, 255, 255, .1);
+  color: var(--text);
+}
+
+.browser-blocked-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(233, 69, 96, .12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.browser-blocked-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px !important;
+  color: var(--accent) !important;
+  background: rgba(255, 255, 255, .04);
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+.browser-tab-bar {
+  display: flex;
+  gap: 0;
+  padding: 0 8px;
+  background: rgba(0, 0, 0, .25);
+  flex-shrink: 0;
+}
+
+.browser-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 11px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, .04);
+  border-radius: 8px 8px 0 0;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.browser-tab.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, .08);
+}
+
+.browser-tab-spinner {
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid var(--text-muted);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.browser-external-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+  flex-shrink: 0;
+}
+
+.browser-external-btn:hover {
+  background: rgba(233, 69, 96, .15);
+  color: var(--text);
+  border-color: rgba(233, 69, 96, .4);
+}
+
+.browser-lock.secure {
+  color: #28c840;
+}
 .settings-layout {
   display: flex;
   flex: 1;
@@ -775,4 +1164,267 @@
 .accent-dot.active {
   border-color: #fff;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, .3);
+}
+
+/* ── BROWSER APP ── */
+.browser-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, .35);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.browser-nav-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.browser-nav-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+}
+
+.browser-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, .1);
+  color: var(--text);
+}
+
+.browser-nav-btn:disabled {
+  opacity: .3;
+  cursor: default;
+}
+
+.browser-address-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 10px;
+  height: 30px;
+}
+
+.browser-lock {
+  font-size: 10px;
+  color: #28c840;
+}
+
+.browser-url-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+}
+
+.browser-url-input::placeholder {
+  color: var(--text-muted);
+}
+
+.browser-bookmarks {
+  display: flex;
+  gap: 4px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, .2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.browser-bookmark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.browser-bookmark:hover {
+  background: rgba(233, 69, 96, .1);
+  border-color: rgba(233, 69, 96, .3);
+  color: var(--text);
+}
+
+.browser-bookmark i {
+  font-size: 12px;
+}
+
+.browser-viewport {
+  flex: 1;
+  position: relative;
+  background: #0d0d1a;
+  overflow: hidden;
+}
+
+.browser-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.browser-loading-bar {
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  animation: browserLoad 1.5s ease-in-out infinite;
+}
+
+@keyframes browserLoad {
+  0% { width: 0; margin-left: 0; }
+  50% { width: 60%; margin-left: 20%; }
+  100% { width: 0; margin-left: 100%; }
+}
+
+.browser-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.browser-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.browser-start-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+.browser-start-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(233, 69, 96, .2), rgba(83, 52, 131, .2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+.browser-start-page h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  color: var(--text);
+  margin: 0;
+}
+
+.browser-start-page p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 320px;
+}
+
+.browser-start-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.browser-start-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.browser-start-link:hover {
+  background: rgba(233, 69, 96, .1);
+  border-color: rgba(233, 69, 96, .3);
+  color: var(--text);
+}
+
+.browser-blocked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 20px;
+}
+
+.browser-blocked i {
+  font-size: 36px;
+  color: var(--accent);
+  opacity: .6;
+}
+
+.browser-blocked h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin: 0;
+}
+
+.browser-blocked p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.browser-open-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 7px;
+  background: rgba(233, 69, 96, .15);
+  border: 1px solid rgba(233, 69, 96, .4);
+  color: var(--accent);
+  font-size: 11.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.browser-open-external:hover {
+  background: rgba(233, 69, 96, .25);
 }

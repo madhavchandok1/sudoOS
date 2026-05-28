@@ -15,6 +15,7 @@ const DESKTOP_ICONS = [
   { id: 'notepad', label: 'Notepad', iconClass: 'fa-solid fa-pen-to-square', colorClass: 'icon-notepad' },
   { id: 'files', label: 'Files', iconClass: 'fa-solid fa-folder-open', colorClass: 'icon-files' },
   { id: 'settings', label: 'Settings', iconClass: 'fa-solid fa-sliders', colorClass: 'icon-settings' },
+  { id: 'browser', label: 'Browser', iconClass: 'fa-solid fa-globe', colorClass: 'icon-browser' },
 ];
 
 export default function Desktop({ onContextMenu, openWindow, triggerNotif }) {

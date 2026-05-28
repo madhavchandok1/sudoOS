@@ -133,7 +133,8 @@ function getAppIcon(id) {
     snake: 'fa-solid fa-dragon',
     notepad: 'fa-solid fa-pen-to-square',
     files: 'fa-solid fa-folder-open',
-    settings: 'fa-solid fa-sliders'
+    settings: 'fa-solid fa-sliders',
+    browser: 'fa-solid fa-globe'
   };
   return icons[id] || 'fa-solid fa-window-maximize';
 }
